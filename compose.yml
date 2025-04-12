@@ -3,7 +3,7 @@ services:
     build: .
     container_name: url_shortener_app
     ports:
-      - "8000:8000"
+      - "9000:9000"
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/url_shortener
     volumes:
@@ -15,6 +15,7 @@ services:
       - .env
     networks:
       - url_shortener_network
+      - shared_network
     # develop:
     #   watch:
     #     - action: sync+restart
@@ -48,3 +49,6 @@ volumes:
 networks:
   url_shortener_network:
     driver: bridge
+  shared_network:
+    external: true
+    name: shared_network
