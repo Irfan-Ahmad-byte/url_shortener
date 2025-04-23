@@ -12,7 +12,7 @@ services:
       db:
         condition: service_healthy
     env_file:
-      - .env
+      - ./app/configs/.env
     networks:
       - url_shortener_network
       - shared_network
